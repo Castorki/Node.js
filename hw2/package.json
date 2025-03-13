@@ -1,0 +1,15 @@
+{
+  "name": "astorki-library",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [],
+  "author": "Castorki",
+  "license": "ISC",
+  "description": "This library was maden to help developers easile testing some apps or creating stub data.",
+  "dependencies": {
+    "astorki-library": "^1.0.0"
+  }
+}
