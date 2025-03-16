@@ -74,8 +74,6 @@ function checkJson(callback) {
 
 
 function toJson(countsObj) {
-    console.log(countsObj);
-
     fs.writeFile('./data.json', JSON.stringify(countsObj), (err) => {
         if (err) {
             throw err;
