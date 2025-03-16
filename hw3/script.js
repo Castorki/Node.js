@@ -8,9 +8,14 @@ let countsObj = {};
 
 const app = express();
 
-checkJson((err, parsedJson) => {
-    if (err) {
-        res.status(500).send('Ошибка при чтении данных');
+checkJson((parsedJson) => {
+    if (!parsedJson) {
+        // console.log(err);
+        countsObj = {
+            '/': 0,
+            '/about': 0
+        }
+        toJson(countsObj);
     } else {
         mainPageCount = parsedJson['/'];
         aboutPageCount = parsedJson['/about'];
@@ -61,11 +66,11 @@ app.get('/about', (req, res) => {
 
 function checkJson(callback) {
     fs.readFile("./data.json", { encoding: "utf-8", flag: "r" }, (err, data) => {
-        if (err) {
-            callback(err, null);
+        if (!data) {
+            callback(err);
         } else {
             const parsedJson = JSON.parse(data);
-            callback(null, parsedJson);
+            callback(parsedJson);
         }
     })
 
